@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "15784581567",
+    "project_id": "lab-08-firebase-dcead",
+    "storage_bucket": "lab-08-firebase-dcead.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15784581567:android:04dc7e5d957770129a290a",
+        "android_client_info": {
+          "package_name": "com.example.lab08"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15784581567-u8u9urpokgova6aqup93sis8tdvu5hha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-GQgfL1UmKEhbg4pORsKXv6MntayNg_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15784581567-u8u9urpokgova6aqup93sis8tdvu5hha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
