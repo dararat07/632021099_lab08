@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:lab08/home2.dart';
+import 'package:lab08/service/auth_service.dart';
 
-class MyHome extends StatefulWidget {
-  const MyHome({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<MyHome> createState() => _MyHomeState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _MyHomeState extends State<MyHome> {
+class _RegisterState extends State<Register> {
   String groupSimple = '';
   bool isChecked = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _controller1 = TextEditingController();
-  TextEditingController _controller2 = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _MyHomeState extends State<MyHome> {
           key: _formKey,
           child: Column(children: [
             TextFormField(
-              controller: _controller1,
+              controller: _email,
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter some text';
@@ -39,7 +39,7 @@ class _MyHomeState extends State<MyHome> {
               ),
             ),
             TextFormField(
-              controller: _controller2,
+              controller: _password,
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter some text';
@@ -55,22 +55,14 @@ class _MyHomeState extends State<MyHome> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  print(_controller1.text);
-                  print(_controller2.text);
-                }
+                // print(_email.toString());
+                AuthService.registerUser(_email.text, _password.text)
+                    .then((value) {
+                  print("succes");
+                  Navigator.pop(context);
+                });
               },
               child: Text('Login'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Register(),
-                    ));
-              },
-              child: Text('Register'),
             ),
           ]),
         ));

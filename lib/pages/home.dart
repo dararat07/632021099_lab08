@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lab08/pages/home2.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class MyHome extends StatefulWidget {
+  const MyHome({super.key});
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<MyHome> createState() => _MyHomeState();
 }
 
-class _RegisterState extends State<Register> {
+class _MyHomeState extends State<MyHome> {
   String groupSimple = '';
   bool isChecked = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _controller1 = TextEditingController();
-  TextEditingController _controller2 = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child: Column(children: [
             TextFormField(
-              controller: _controller1,
+              controller: _email,
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter some text';
@@ -38,7 +39,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             TextFormField(
-              controller: _controller2,
+              controller: _password,
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter some text';
@@ -55,11 +56,21 @@ class _RegisterState extends State<Register> {
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  print(_controller1.text);
-                  print(_controller2.text);
+                  print(_email.text);
+                  print(_password.text);
                 }
               },
               child: Text('Login'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Register(),
+                    ));
+              },
+              child: Text('Register'),
             ),
           ]),
         ));
